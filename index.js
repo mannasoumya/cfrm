@@ -36,5 +36,14 @@ function getAction(strategy) {
   return a;
 }
 
+function train(iters) {
+  let actionUtility = new Array(NUM_ACTIONS);
+  for (let i = 0; i < iters; i++) {
+    //Get regret-matched mixed-strategy actions
+    //Compute action utilities
+    //Accumulate action regrets
+  }
+}
+
 // let strategy_i = getStrategy();
 // console.log(getAction(strategy_i));
