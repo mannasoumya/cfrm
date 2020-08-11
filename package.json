@@ -1,0 +1,16 @@
+{
+  "name": "counterfactual_regret_minimization",
+  "version": "1.0.0",
+  "description": "Implementation of Counter Factual Regret Minimization using Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "gametheory",
+    "game_theory"
+  ],
+  "author": "Manna",
+  "license": "MIT"
+}
