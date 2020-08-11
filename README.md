@@ -4,9 +4,9 @@ Work in progress
 <br>
 For the original paper refer <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
 <br><br>
+An excellent Quora link <a href="https://qr.ae/pN21tl">here</a>
 
 ## Some Notes:
-<br>
 <h3> Optimal Strategy </h3>
 <br>
 A strategy is optimal when it can do no worse than tie against any oppponent.
