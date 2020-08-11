@@ -2,4 +2,4 @@
 
 Work in progress
 <br>
-For the original papar refer <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
+For the original paper refer <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
