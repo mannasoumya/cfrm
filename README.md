@@ -4,7 +4,7 @@ Work in progress
 <br>
 For the original paper refer <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
 <br>
-An excellent Quora link <a href="https://qr.ae/pN21tl">here</a>
+An excellent Quora link <a href="https://qr.ae/pN21tl">here</a>.
 
 ## Some Notes:
 ### Optimal Strategy 

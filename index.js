@@ -3,9 +3,9 @@ const ROCK = 0,
   SCISSORS = 2,
   NUM_ACTIONS = 3;
 let random = Math.random();
-let regretSum = new Array(NUM_ACTIONS),
-  strategy = new Array(NUM_ACTIONS),
-  strategySum = new Array(NUM_ACTIONS),
+let regretSum = (new Array(NUM_ACTIONS)).fill(0),
+  strategy = (new Array(NUM_ACTIONS)).fill(0),
+  strategySum = (new Array(NUM_ACTIONS)).fill(0),
   oppStrategy = [0.4, 0.55, 0.05];
 
 function getStrategy() {
@@ -44,13 +44,15 @@ function train(iters) {
     let strategy = getStrategy();
     let myaction = getAction(strategy);
     let otheraction = getAction(oppStrategy);
+    
     //Compute action utilities
     actionUtility[otheraction] = 0;
     actionUtility[otheraction == NUM_ACTIONS - 1 ? 0 : otheraction + 1] = 1;
     actionUtility[otheraction == 0 ? NUM_ACTIONS - 1 : otheraction - 1] = -1;
+   
     //Accumulate action regrets
     for (let a = 0; a < NUM_ACTIONS; a++)
-      regretSum[a] += actionUtility[a] - actionUtility[myaction];
+      regretSum[a] += (actionUtility[a] - actionUtility[myaction]);
   }
 }
 
@@ -69,7 +71,7 @@ function getAverageStrategy() {
   return avgStrategy;
 }
 
-train(1000000);
+train(10000);
 console.log(getAverageStrategy());
 
 // let strategy_i = getStrategy();
