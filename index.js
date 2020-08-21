@@ -3,10 +3,10 @@ const ROCK = 0,
   SCISSORS = 2,
   NUM_ACTIONS = 3;
 let random = Math.random();
-let regretSum = (new Array(NUM_ACTIONS)).fill(0),
-  strategy = (new Array(NUM_ACTIONS)).fill(0),
-  strategySum = (new Array(NUM_ACTIONS)).fill(0),
-  oppStrategy = [0.4, 0.55, 0.05];
+let regretSum = new Array(NUM_ACTIONS).fill(0),
+  strategy = new Array(NUM_ACTIONS).fill(0),
+  strategySum = new Array(NUM_ACTIONS).fill(0),
+  oppStrategy = [0.4, 0.05, 0.55];
 
 function getStrategy() {
   let normalizingSum = 0;
@@ -43,16 +43,17 @@ function train(iters) {
     //Get regret-matched mixed-strategy actions
     let strategy = getStrategy();
     let myaction = getAction(strategy);
-    let otheraction = getAction(oppStrategy);
     
+    let otheraction = getAction(oppStrategy);
+    // oppStrategy=getStrategy(); if opponent is intelligent and uses optimal strategy everytime
     //Compute action utilities
     actionUtility[otheraction] = 0;
     actionUtility[otheraction == NUM_ACTIONS - 1 ? 0 : otheraction + 1] = 1;
     actionUtility[otheraction == 0 ? NUM_ACTIONS - 1 : otheraction - 1] = -1;
-   
+
     //Accumulate action regrets
     for (let a = 0; a < NUM_ACTIONS; a++)
-      regretSum[a] += (actionUtility[a] - actionUtility[myaction]);
+      regretSum[a] += actionUtility[a] - actionUtility[myaction];
   }
 }
 
@@ -71,8 +72,8 @@ function getAverageStrategy() {
   return avgStrategy;
 }
 
-train(10000);
-console.log(getAverageStrategy());
-
-// let strategy_i = getStrategy();
-// console.log(getAction(strategy_i));
+for (let i = 0; i < 100; i++) {
+  train(100);
+  // console.log((1 - getAverageStrategy()[1]).toPrecision(6));
+  console.log(getAverageStrategy());
+}
